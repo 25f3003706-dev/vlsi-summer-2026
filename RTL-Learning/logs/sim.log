@@ -1,0 +1,22 @@
+
+--- SIMULATION ---
+VCD info: dumpfile gate_and.vcd opened for output.
+VCD warning: E:\ESHWAR NEW VOLUME (E)\DOWNLOADS\PROJECT\vlsi\rt $dumpfile called after $dumpvars started,
+                                                                using existing file (gate_and.vcd).
+VCD warning: $dumpvars ignored, previously called at simtime 0
+VCD warning: E:\ESHWAR NEW VOLUME (E)\DOWNLOADS\PROJECT\vlsi\rt $dumpfile called after $dumpvars started,
+                                                                using existing file (gate_and.vcd).
+VCD warning: $dumpvars ignored, previously called at simtime 0
+VCD warning: E:\ESHWAR NEW VOLUME (E)\DOWNLOADS\PROJECT\vlsi\rt $dumpfile called after $dumpvars started,
+                                                                using existing file (gate_and.vcd).
+VCD warning: $dumpvars ignored, previously called at simtime 0
+VCD warning: E:\ESHWAR NEW VOLUME (E)\DOWNLOADS\PROJECT\vlsi\rt $dumpfile called after $dumpvars started,
+                                                                using existing file (gate_and.vcd).
+VCD warning: $dumpvars ignored, previously called at simtime 0
+VCD warning: E:\ESHWAR NEW VOLUME (E)\DOWNLOADS\PROJECT\vlsi\rt $dumpfile called after $dumpvars started,
+                                                                using existing file (gate_and.vcd).
+VCD warning: $dumpvars ignored, previously called at simtime 0
+VCD warning: E:\ESHWAR NEW VOLUME (E)\DOWNLOADS\PROJECT\vlsi\rt $dumpfile called after $dumpvars started,
+                                                                using existing file (gate_and.vcd).
+VCD warning: $dumpvars ignored, previously called at simtime 0
+E:\ESHWAR NEW VOLUME (E)\DOWNLOADS\PROJECT\vlsi\rtl_project\vlsi-summer-2026\RTL-Learning\modules\01_basics\gates\tb\gates_tb.sv:100: $finish called at 290000 (1ps)

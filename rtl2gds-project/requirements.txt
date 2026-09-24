@@ -1,0 +1,2 @@
+﻿siliconcompiler>=0.30.0
+yowasp-yosys

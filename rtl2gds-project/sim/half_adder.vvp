@@ -1,0 +1,108 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2009.vpi";
+S_000001e02477df50 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_000001e02477e0e0 .scope module, "full_adder" "full_adder" 3 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "cin";
+    .port_info 3 /OUTPUT 1 "sum";
+    .port_info 4 /OUTPUT 1 "cout";
+L_000001e0246646f0 .functor OR 1, L_000001e0246337a0, L_000001e024664760, C4<0>, C4<0>;
+o000001e024669fd8 .functor BUFZ 1, C4<z>; HiZ drive
+v000001e024664360_0 .net "a", 0 0, o000001e024669fd8;  0 drivers
+o000001e02466a008 .functor BUFZ 1, C4<z>; HiZ drive
+v000001e024664400_0 .net "b", 0 0, o000001e02466a008;  0 drivers
+v000001e0246b2e50_0 .net "carry_half1", 0 0, L_000001e0246337a0;  1 drivers
+v000001e0246b28b0_0 .net "carry_half2", 0 0, L_000001e024664760;  1 drivers
+o000001e02466a158 .functor BUFZ 1, C4<z>; HiZ drive
+v000001e0246b2db0_0 .net "cin", 0 0, o000001e02466a158;  0 drivers
+v000001e0246b35d0_0 .net "cout", 0 0, L_000001e0246646f0;  1 drivers
+v000001e0246b3490_0 .net "sum", 0 0, L_000001e024658b80;  1 drivers
+v000001e0246b33f0_0 .net "sum_half", 0 0, L_000001e024633360;  1 drivers
+S_000001e024666570 .scope module, "ha1" "half_adder" 3 11, 4 1 0, S_000001e02477e0e0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "sum";
+    .port_info 3 /OUTPUT 1 "carry";
+L_000001e024633360 .functor XOR 1, o000001e024669fd8, o000001e02466a008, C4<0>, C4<0>;
+L_000001e0246337a0 .functor AND 1, o000001e024669fd8, o000001e02466a008, C4<1>, C4<1>;
+v000001e024633580_0 .net "a", 0 0, o000001e024669fd8;  alias, 0 drivers
+v000001e024658ca0_0 .net "b", 0 0, o000001e02466a008;  alias, 0 drivers
+v000001e0246330e0_0 .net "carry", 0 0, L_000001e0246337a0;  alias, 1 drivers
+v000001e024666700_0 .net "sum", 0 0, L_000001e024633360;  alias, 1 drivers
+S_000001e024663ff0 .scope module, "ha2" "half_adder" 3 19, 4 1 0, S_000001e02477e0e0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "sum";
+    .port_info 3 /OUTPUT 1 "carry";
+L_000001e024658b80 .functor XOR 1, L_000001e024633360, o000001e02466a158, C4<0>, C4<0>;
+L_000001e024664760 .functor AND 1, L_000001e024633360, o000001e02466a158, C4<1>, C4<1>;
+v000001e0246667a0_0 .net "a", 0 0, L_000001e024633360;  alias, 1 drivers
+v000001e024664180_0 .net "b", 0 0, o000001e02466a158;  alias, 0 drivers
+v000001e024664220_0 .net "carry", 0 0, L_000001e024664760;  alias, 1 drivers
+v000001e0246642c0_0 .net "sum", 0 0, L_000001e024658b80;  alias, 1 drivers
+S_000001e0246663e0 .scope module, "half_adder_tb" "half_adder_tb" 5 3;
+ .timescale -9 -12;
+v000001e0246b2950_0 .var "a", 0 0;
+v000001e0246b3670_0 .var "b", 0 0;
+v000001e0246b3030_0 .net "carry", 0 0, L_000001e024664a00;  1 drivers
+v000001e0246b29f0_0 .net "sum", 0 0, L_000001e024664990;  1 drivers
+S_000001e0246644a0 .scope module, "uut" "half_adder" 5 7, 4 1 0, S_000001e0246663e0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "sum";
+    .port_info 3 /OUTPUT 1 "carry";
+L_000001e024664990 .functor XOR 1, v000001e0246b2950_0, v000001e0246b3670_0, C4<0>, C4<0>;
+L_000001e024664a00 .functor AND 1, v000001e0246b2950_0, v000001e0246b3670_0, C4<1>, C4<1>;
+v000001e0246b2ef0_0 .net "a", 0 0, v000001e0246b2950_0;  1 drivers
+v000001e0246b3530_0 .net "b", 0 0, v000001e0246b3670_0;  1 drivers
+v000001e0246b2f90_0 .net "carry", 0 0, L_000001e024664a00;  alias, 1 drivers
+v000001e0246b3170_0 .net "sum", 0 0, L_000001e024664990;  alias, 1 drivers
+    .scope S_000001e0246663e0;
+T_0 ;
+    %vpi_call/w 5 15 "$dumpfile", "half_adder.vcd" {0 0 0};
+    %vpi_call/w 5 16 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001e0246663e0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001e0246b2950_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001e0246b3670_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001e0246b2950_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001e0246b3670_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001e0246b2950_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001e0246b3670_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001e0246b2950_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001e0246b3670_0, 0, 1;
+    %delay 10000, 0;
+    %vpi_call/w 5 23 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 6;
+    "N/A";
+    "<interactive>";
+    "-";
+    "E:\ESHWAR NEW VOLUME (E)\DOWNLOADS\PROJECT\vlsi\rtl_project\vlsi-summer-2026\rtl2gds-project\modules\02_combinational\rtl\full_adder.v";
+    "E:\ESHWAR NEW VOLUME (E)\DOWNLOADS\PROJECT\vlsi\rtl_project\vlsi-summer-2026\rtl2gds-project\modules\02_combinational\rtl\half_adder.v";
+    "E:\ESHWAR NEW VOLUME (E)\DOWNLOADS\PROJECT\vlsi\rtl_project\vlsi-summer-2026\rtl2gds-project\modules\02_combinational\tb\half_tb.sv";

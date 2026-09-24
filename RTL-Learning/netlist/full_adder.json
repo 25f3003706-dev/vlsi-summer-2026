@@ -1,0 +1,265 @@
+{
+  "creator": "Yosys 0.48 (git sha1 aaa5347494801e9e3870b31387da59da24233f76, clang++ 18.1.2-wasi-sdk -O3)",
+  "modules": {
+    "full_adder": {
+      "attributes": {
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "{workspace}/RTL-Learning/modules/02_combinational/rtl/full_adder.v:1.1-28.10"
+      },
+      "ports": {
+        "a": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "b": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "cin": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "sum": {
+          "direction": "output",
+          "bits": [ 5 ]
+        },
+        "cout": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+        "$or${workspace}/RTL-Learning/modules/02_combinational/rtl/full_adder.v:27$3": {
+          "hide_name": 1,
+          "type": "$or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "{workspace}/RTL-Learning/modules/02_combinational/rtl/full_adder.v:27.19-27.44"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 7 ],
+            "B": [ 8 ],
+            "Y": [ 6 ]
+          }
+        },
+        "ha1": {
+          "hide_name": 0,
+          "type": "half_adder",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "{workspace}/RTL-Learning/modules/02_combinational/rtl/full_adder.v:11.16-16.6"
+          },
+          "port_directions": {
+            "a": "input",
+            "b": "input",
+            "carry": "output",
+            "sum": "output"
+          },
+          "connections": {
+            "a": [ 2 ],
+            "b": [ 3 ],
+            "carry": [ 7 ],
+            "sum": [ 9 ]
+          }
+        },
+        "ha2": {
+          "hide_name": 0,
+          "type": "half_adder",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "{workspace}/RTL-Learning/modules/02_combinational/rtl/full_adder.v:19.16-24.6"
+          },
+          "port_directions": {
+            "a": "input",
+            "b": "input",
+            "carry": "output",
+            "sum": "output"
+          },
+          "connections": {
+            "a": [ 9 ],
+            "b": [ 4 ],
+            "carry": [ 8 ],
+            "sum": [ 5 ]
+          }
+        }
+      },
+      "netnames": {
+        "a": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "{workspace}/RTL-Learning/modules/02_combinational/rtl/full_adder.v:2.11-2.12"
+          }
+        },
+        "b": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "{workspace}/RTL-Learning/modules/02_combinational/rtl/full_adder.v:3.11-3.12"
+          }
+        },
+        "carry_half1": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "src": "{workspace}/RTL-Learning/modules/02_combinational/rtl/full_adder.v:8.20-8.31"
+          }
+        },
+        "carry_half2": {
+          "hide_name": 0,
+          "bits": [ 8 ],
+          "attributes": {
+            "src": "{workspace}/RTL-Learning/modules/02_combinational/rtl/full_adder.v:8.33-8.44"
+          }
+        },
+        "cin": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "{workspace}/RTL-Learning/modules/02_combinational/rtl/full_adder.v:4.11-4.14"
+          }
+        },
+        "cout": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "src": "{workspace}/RTL-Learning/modules/02_combinational/rtl/full_adder.v:6.12-6.16"
+          }
+        },
+        "sum": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "{workspace}/RTL-Learning/modules/02_combinational/rtl/full_adder.v:5.12-5.15"
+          }
+        },
+        "sum_half": {
+          "hide_name": 0,
+          "bits": [ 9 ],
+          "attributes": {
+            "src": "{workspace}/RTL-Learning/modules/02_combinational/rtl/full_adder.v:8.10-8.18"
+          }
+        }
+      }
+    },
+    "half_adder": {
+      "attributes": {
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "{workspace}/RTL-Learning/modules/02_combinational/rtl/half_adder.v:1.1-10.10"
+      },
+      "ports": {
+        "a": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "b": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "sum": {
+          "direction": "output",
+          "bits": [ 4 ]
+        },
+        "carry": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+        "$and${workspace}/RTL-Learning/modules/02_combinational/rtl/half_adder.v:8$2": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "{workspace}/RTL-Learning/modules/02_combinational/rtl/half_adder.v:8.20-8.25"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 2 ],
+            "B": [ 3 ],
+            "Y": [ 5 ]
+          }
+        },
+        "$xor${workspace}/RTL-Learning/modules/02_combinational/rtl/half_adder.v:7$1": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "{workspace}/RTL-Learning/modules/02_combinational/rtl/half_adder.v:7.18-7.23"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 2 ],
+            "B": [ 3 ],
+            "Y": [ 4 ]
+          }
+        }
+      },
+      "netnames": {
+        "a": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "{workspace}/RTL-Learning/modules/02_combinational/rtl/half_adder.v:2.11-2.12"
+          }
+        },
+        "b": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "{workspace}/RTL-Learning/modules/02_combinational/rtl/half_adder.v:3.11-3.12"
+          }
+        },
+        "carry": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "{workspace}/RTL-Learning/modules/02_combinational/rtl/half_adder.v:5.12-5.17"
+          }
+        },
+        "sum": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "{workspace}/RTL-Learning/modules/02_combinational/rtl/half_adder.v:4.12-4.15"
+          }
+        }
+      }
+    }
+  }
+}

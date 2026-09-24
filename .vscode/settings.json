@@ -1,0 +1,7 @@
+{
+    "digital-ide.function.lsp.linter.verilog.diagnostor": "verilator",
+    "digital-ide.function.simulate.simulationHome": "${workspaceFolder}/build",
+    "digital-ide.function.netlist.schema-mode": "after",
+    "digital-ide.prj.iverilog.install.path": "C:\\iverilog\\bin",
+    "digital-ide.function.simulate.gtkwavePath": "C:\\iverilog\\gtkwave\\bin"
+}

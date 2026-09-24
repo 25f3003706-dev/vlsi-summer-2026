@@ -1,0 +1,5 @@
+read_verilog -sv -formal -overwrite {workspace}/RTL-Learning/modules/02_combinational/rtl/half_adder.v
+read_verilog -sv -formal -overwrite {workspace}/RTL-Learning/modules/02_combinational/rtl/full_adder.v
+read_verilog -sv -formal -overwrite {workspace}/RTL-Learning/modules/02_combinational/rtl/multiplier.v
+design -reset-vlog; proc; opt_clean;
+write_json {workspace}/netlist/MUl_4x4.json

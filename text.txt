@@ -1,0 +1,97 @@
+# Compile + simulate with iverilog
+import subprocess
+
+# subprocess.run(['iverilog', '-o', 'sim/my_design.vvp', 'src/my_design.v', 'testbench/my_design_tb.v'])
+# subprocess.run(['vvp', 'sim/my_design.vvp'])
+
+"""
+run_sim.py
+
+Compiles RTL + testbench with Icarus Verilog, runs the simulation,
+and optionally opens the resulting waveform in GTKWave.
+
+Usage:
+    python scripts/run_sim.py
+    python scripts/run_sim.py --design my_design --wave
+"""
+
+import argparse
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+SRC_DIR = ROOT / "src"
+TB_DIR = ROOT / "testbench"
+SIM_DIR = ROOT / "sim"
+waveform_dir = ROOT / "waveforms"
+
+
+def run(cmd, **kwargs):
+    print(f"$ {' '.join(cmd)}")
+    result = subprocess.run(cmd, **kwargs)
+    if result.returncode != 0:
+        print(f"Command failed with exit code {result.returncode}", file=sys.stderr)
+        sys.exit(result.returncode)
+    return result
+
+
+def compile_design(design_name, top_module):
+    SIM_DIR.mkdir(parents=True, exist_ok=True)
+
+    rtl_file = SRC_DIR / f"{design_name}.v"
+    tb_file = TB_DIR / f"{design_name}_tb.sv"
+    out_file = SIM_DIR / f"{design_name}.vvp"
+
+
+    if not rtl_file.exists():
+        print(f"RTL file not found: {rtl_file}", file=sys.stderr)
+        sys.exit(1)
+    if not tb_file.exists():
+        print(f"Testbench file not found: {tb_file}", file=sys.stderr)
+        sys.exit(1)
+
+    run([
+        "iverilog",
+    "-g2012",
+    "-o", str(out_file),
+    "-s", top_module,
+    str(rtl_file),
+    str(tb_file)
+    ])
+
+    return out_file
+
+
+def simulate(vvp_file):
+    run(["vvp", str(vvp_file)])
+
+
+def open_waveform(design_name):
+    vcd_file = waveform_dir / f"{design_name}.vcd"
+    if not vcd_file.exists():
+        print(f"No waveform file found at {vcd_file}")
+        print("Make sure your testbench includes $dumpfile/$dumpvars.")
+        return
+    subprocess.Popen(["gtkwave", str(vcd_file)])
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Compile and simulate RTL with iverilog")
+    parser.add_argument("--design", default="my_design", help="Design name (without .v)",required=True)
+    parser.add_argument("--top", default=None, help="Top-level testbench module name")
+    parser.add_argument("--wave", action="store_true", help="Open GTKWave after simulation")
+    args = parser.parse_args()
+
+    top_module = args.top if args.top else f"{args.design}_tb"
+
+    vvp_file = compile_design(args.design, top_module)
+    simulate(vvp_file)
+
+    if args.wave:
+        open_waveform(args.design)
+
+
+if __name__ == "__main__":
+    main()
+convert the script so that is can lovate the verliog file and it testbench file automatically and simulate  it effeciently runing iverilog -g2012 -o sim/all_gates.vvp -s"" modules\01_basics\gates\rtl\* modules\01_basics\gates\tb\gates_tb.sv in rtl2gds-project floder with out any er

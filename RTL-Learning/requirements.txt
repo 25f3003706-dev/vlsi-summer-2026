@@ -1,0 +1,5 @@
+# Python dependencies for RTL-Learning scripts
+# (Icarus Verilog + GTKWave are external tools, not pip packages —
+#  install via apt/brew/choco separately)
+
+colorama>=0.4.6

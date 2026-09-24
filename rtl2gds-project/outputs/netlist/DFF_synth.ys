@@ -1,0 +1,7 @@
+
+read_verilog E:/ESHWAR NEW VOLUME (E)/DOWNLOADS/PROJECT/vlsi/rtl_project/vlsi-summer-2026/rtl2gds-project/modules/05_memory/rtl/DFF.V
+hierarchy -top DFF
+proc; opt; fsm; opt; memory; opt
+techmap; opt
+write_verilog E:/ESHWAR NEW VOLUME (E)/DOWNLOADS/PROJECT/vlsi/rtl_project/vlsi-summer-2026/rtl2gds-project/outputs/netlist/DFF_netlist.v
+stat
